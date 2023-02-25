@@ -1,4 +1,5 @@
-<template><!-- <div v-for="post in posts.posts" :key="post.id" class="p-4 md:w-1/3">
+<template>
+    <!-- <div v-for="post in posts.posts" :key="post.id" class="p-4 md:w-1/3">
         <div class="h-full border-2 border-gray-300 border-opacity-60 rounded-lg overflow-hidden">
             <img class="lg:h-48 md:h-36 w-full object-cover object-center" :src="post.imageURL" alt="blog">
             <div class="p-6">
@@ -24,10 +25,10 @@
                 <h1>{{ post.title }}</h1>
                 <p>{{ post.des }}</p>
 </div> -->
-    <div v-if="posts.posts.length">
+    <div class="flex md:flex-row flex-col" v-if="posts.posts.length">
         <div v-for="post in posts.posts" :key="post.id"
-            class=" md:max-w-xs rounded overflow-hidden shadow-lg m-4 dark:bg-zinc-900 border">
-            <img class="w-full" :src="post.imageURL" alt="Sunset in the mountains">
+            class=" md:max-w-xs  rounded overflow-hidden shadow-lg md:m-4 dark:bg-zinc-900 border m-16">
+            <img class="h-40 w-full" :src="post.imageURL" alt="Sunset in the mountains">
             <div class="px-6 py-4">
                 <div class="font-bold font-recoleta text-3xl mb-2">{{ post.title }}</div>
                 <p class="text-gray-700 dark:text-white text-base mb-4">

@@ -2,7 +2,7 @@
     <header class="flex justify-between	p-8 border-b-2 border-slate-300	 dark:border-slate-500 	">
         <div class="left-header">
             <!-- <img src="../assets/logo.svg" alt=""> -->
-            <router-link class="font-recoleta" to="/">Dev Blog</router-link>
+            <router-link class="font-recoleta" to="/"><i class="fa-solid fa-code"></i> Dev Blog</router-link>
         </div>
         <div class="right-header">
             <ul class="flex gap-x-4	">

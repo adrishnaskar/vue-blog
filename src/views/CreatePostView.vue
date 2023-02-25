@@ -4,8 +4,8 @@
 
 
         <v-textarea label="Description" v-model="posts.newPost.des"></v-textarea>
-        <!-- <v-file-input accept=".png,.jpg,.jpeg,.gif" label="Select an Image"
-            @change="posts.newPost.onFileSelected"></v-file-input> -->
+        <v-file-input accept=".png,.jpg,.jpeg,.gif" label="Select an Image"
+            @change="posts.newPost.onFileSelected"></v-file-input>
 
 
 

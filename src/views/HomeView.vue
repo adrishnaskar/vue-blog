@@ -8,8 +8,11 @@
     <div>
         <PostCard />
     </div>
+    <Footer />
 </template>
 <script setup>
 import PostCard from '../components/PostCard.vue'
 import Hero from '../components/Hero.vue'
+import Footer from '../components/Footer.vue';
+
 </script>
