@@ -37,7 +37,8 @@ export const useAuthStore = defineStore('auth', () => {
   }
   async function handleSignOut(){
     signOut(auth).then(()=>{
-      console.log('user signed out')
+      router.push({ path: '/'})
+
     }).catch((error)=>{
       console.log(error.message)
     })

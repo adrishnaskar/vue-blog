@@ -1,27 +1,41 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
-import { collection,  getDocs } from "firebase/firestore";
+import { collection,  getDocs,addDoc } from "firebase/firestore";
 import { db } from '../firebase/firebaseConfig';
 import { reactive } from 'vue'
 import { storage } from '../firebase/firebaseConfig';
-import {ref as imgRef,uploadBytes  } from 'firebase/storage'
-import UUID, { uuid } from "vue3-uuid";
+import {ref as storageRef,uploadBytes,getDownloadURL   } from 'firebase/storage'
+import { v4 } from 'uuid';
 
 export const usePostStore = defineStore('post', () => {
 
   const posts = ref([])
-  // const ulid =ref(uuid.v4())
+  const testuuid =ref(`${v4()}`)
   
   const newPost = reactive({
     title: '',
     des: '',
-    imageFile: null
-
-
+    imageFile: null,
+    imageURL: null
   })
+  
 
    const colRef = collection(db,'posts')
-  //  const storageRef = imgRef(storage,`images/${newPost.imageFile.name + uuid.v4()}`)
+
+
+  //  const uploadImage =()=>{
+  //   const imageRef = storageRef(storage,`images/${newPost.imageFile.name + v4()}`)
+
+
+  //   uploadBytes(imageRef,newPost.imageFile).then((snapshot)=>{
+  //    getDownloadURL(snapshot.ref).then(function(downloadURL) {
+  //       console.log("File available at", downloadURL);
+  //       newPost.imageURL =downloadURL
+  //     });
+  //   })
+   
+  //  }
+  
 
     async function getPosts(){
      getDocs(colRef)
@@ -37,16 +51,35 @@ export const usePostStore = defineStore('post', () => {
 
 
   async function createPost(){
-    console.log(newPost.title)
-    console.log(newPost.des)
-    console.log(newPost.imageFile)  
+    const imageRef = storageRef(storage,`images/${newPost.imageFile.name + v4()}`)
+
+
+      uploadBytes(imageRef,newPost.imageFile).then((snapshot)=>{
+     getDownloadURL(snapshot.ref).then(function(downloadURL) {
+        console.log("File available at", downloadURL);
+        newPost.imageURL =downloadURL
+      });
+    })
+     const data = {
+      title: newPost.title,
+      des: newPost.des,
+      imageURL: newPost.imageURL,
+      username: 'adrishnaskar'
+    }
+     addDoc(colRef,data).then(()=>{
+      console.log("Document has been added successfully");
+
+    })
+ 
+
   }
     
 
 
-  //   function onFileSelected(e){
-// newPost.imageFile = e.target.files[0]
-//   }
+    function onFileSelected(e){
+newPost.imageFile = e.target.files[0]
+console.log('done adding',newPost.imageFile)
+  }
 //   async function uploadImage(){
 //     uploadBytes(storageRef, newPost.imageFile).then((snapshot) => {
 //       console.log('Uploaded a Image');
@@ -56,5 +89,5 @@ export const usePostStore = defineStore('post', () => {
 
 
 
-  return {posts,getPosts,newPost,createPost }
+  return {posts,getPosts,newPost,createPost,testuuid,onFileSelected }
 })

@@ -25,10 +25,10 @@
                 <h1>{{ post.title }}</h1>
                 <p>{{ post.des }}</p>
 </div> -->
-    <div class="flex md:flex-row flex-col" v-if="posts.posts.length">
+    <div class="grid grid-cols-content 	gap-4 m-8 " v-if="posts.posts.length">
         <div v-for="post in posts.posts" :key="post.id"
-            class=" md:max-w-xs  rounded overflow-hidden shadow-lg md:m-4 dark:bg-zinc-900 border m-16">
-            <img class="h-40 w-full" :src="post.imageURL" alt="Sunset in the mountains">
+            class="m-2 rounded overflow-hidden shadow-lg dark:bg-zinc-900 border">
+            <img class="h-48  w-full" :src="post.imageURL" alt="Sunset in the mountains">
             <div class="px-6 py-4">
                 <div class="font-bold font-recoleta text-3xl mb-2">{{ post.title }}</div>
                 <p class="text-gray-700 dark:text-white text-base mb-4">
@@ -40,6 +40,7 @@
             </div>
         </div>
     </div>
+
     <div v-else>
         <v-progress-circular class="flex h-screen w-screen justify-center items-center" indeterminate
             color="primary"></v-progress-circular>

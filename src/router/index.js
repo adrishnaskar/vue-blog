@@ -20,7 +20,7 @@ else{
 //   let user = auth.currentUser
 //   if(!user){
 //     next()
-//   }
+//     }
 //   else{
 //     next({name:'Home'})
 //   }
@@ -49,7 +49,8 @@ const router = createRouter({
     {
       path: '/login',
       name: 'SignIn',
-      component: SignInView,
+      component: SignInView
+      // beforeEnter: redirectAuth
     },
     {
       path: '/sign-up',

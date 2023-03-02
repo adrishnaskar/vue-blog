@@ -1,6 +1,6 @@
 <template>
     <div v-if="post != null" class="flex flex-col  gap-y-8 m-12 md:mx-40">
-        <img :src="post.imageURL" alt="thumbnail" class="rounded-lg">
+        <img :src="post.imageURL" alt="thumbnail" class="rounded-lg max-h-96">
         <h1 class="text-5xl text-bold">{{ post.title }}</h1>
         <h3 class="text-xl"><i class="fa-solid fa-user"></i> {{ post.username }}</h3>
         <p class="text-2xl">{{ post.des }}</p>

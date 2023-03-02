@@ -4,8 +4,7 @@
 
 
         <v-textarea label="Description" v-model="posts.newPost.des"></v-textarea>
-        <v-file-input accept=".png,.jpg,.jpeg,.gif" label="Select an Image"
-            @change="posts.newPost.onFileSelected"></v-file-input>
+        <v-file-input accept=".png,.jpg,.jpeg,.gif" label="Select an Image" @change="posts.onFileSelected"></v-file-input>
 
 
 
@@ -17,7 +16,12 @@
 
 
     </form>
-    <!-- <v-file-input accept=".png,.jpg,.jpeg,.gif" label="Select an Image" @change="posts.onFileSelected"></v-file-input> -->
+    <!-- <form @submit.prevent="posts.uploadImage">
+        <v-file-input accept=".png,.jpg,.jpeg,.gif" label="Select an Image" @change="posts.onFileSelected"></v-file-input>
+        <button type="submit">Upload</button>
+    </form>
+
+    <h3>{{ posts.testuuid }}</h3> -->
 </template>
 <script setup>
 
@@ -29,5 +33,4 @@ import { onMounted } from 'vue';
 import { usePostStore } from '../stores/postStore';
 
 const posts = usePostStore()
-
 </script>
