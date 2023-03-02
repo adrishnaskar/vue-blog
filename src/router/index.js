@@ -37,7 +37,10 @@ const router = createRouter({
       path: '/posts/:id',
       name: 'Post',
       component: PostView,
-      
+      beforeEnter:(to,from,next)=>{
+        document.body.style.cursor = 'wait'; 
+        next();
+      }
 
     },
     {

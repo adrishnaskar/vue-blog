@@ -31,7 +31,10 @@ async function loadData() {
     }
 }
 onMounted(() => {
+    document.body.style.cursor = 'default';
+
     loadData()
+
 })
 
 </script>
