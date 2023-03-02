@@ -4,7 +4,7 @@
     <div class="my-32">
         <Hero />
     </div>
-    <h3 class="text-3xl text-bold text-center my-12">Featured Posts</h3>
+    <h3 class="text-3xl text-bold text-center my-12">Blog Posts</h3>
     <div>
         <PostCard />
     </div>
