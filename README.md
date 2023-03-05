@@ -14,6 +14,8 @@ Blog app made with Vue, Vuetify, Tailwind CSS & Firebase
 
 # Demo
 
+https://devblog-vue.web.app/
+
 ## Project Setup
 
 ```sh
