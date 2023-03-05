@@ -3,6 +3,7 @@
 Blog app made with Vue, Vuetify, Tailwind CSS & Firebase
 
 ### Home
+![screencapture-localhost-5173-2023-03-05-20_04_15](https://user-images.githubusercontent.com/37959710/222966906-e2638e11-2648-4b0d-ace0-0e2243508773.png)
 
 ### Authentication
 ![screencapture-localhost-5173-login-2023-03-04-11_52_05](https://user-images.githubusercontent.com/37959710/222966631-9517ac77-a55f-4ccd-870d-9fe55184b156.png)
